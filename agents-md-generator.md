@@ -20,22 +20,29 @@ This codebase is indexed in Qdrant vector database using Nomic embeddings for se
 
 ## SECTION 1: OVERVIEW (Use Vector DB + Serena)
 
-**Step 1: Use Vector DB to understand the project**
-
-Query Qdrant with these semantic searches (limit 10 results each):
-```
-1. "What is the main purpose of this system?"
-2. "What business problem does this solve?"
-3. "What type of application is this?"
-4. "What technologies and frameworks are used?"
-5. "What domain or industry is this for?"
-```
-
-**Step 2: Use Serena to verify structure**
+**Step 1: Use Serena to identify project basics**
 
 Use Serena MCP to:
-- Confirm actual tech stack (check build files, dependencies)
-- Verify project type (find main entry points)
+- Find build files (pom.xml, package.json, build.gradle, requirements.txt, etc.)
+- Find main entry points (main classes, app.py, index.js, etc.)
+- Check directory structure
+- Identify tech stack from dependencies
+
+**Step 2: Use Vector DB to understand implementation patterns (optional)**
+
+If you need to understand what the code does (limit 5-10 results):
+```
+"main application entry point implementation"
+"primary service or controller implementations"
+"core business logic patterns"
+```
+
+**Note:** Vector DB contains code, not business docs. Use it to find implementation patterns, not to understand business requirements. For business understanding, rely on:
+- README files
+- Code comments
+- API endpoint names
+- Class/method names
+- Existing documentation
 
 **Generate:**
 
@@ -53,30 +60,60 @@ Use Serena MCP to:
 
 ## SECTION 2: BUSINESS USE CASES & CRITICAL BUSINESS RULES (Use Vector DB)
 
-**Step 1: Discover use cases**
+**Step 1: Analyze code structure and patterns**
 
-Query Qdrant:
+Use Serena MCP to:
+- List main controllers/endpoints
+- Find service layer implementations
+- Identify data models/entities
+- Check validation logic
+
+Use Vector DB to find implementation patterns (limit 5-10):
 ```
-1. "What are the main business use cases?"
-2. "What problems do users solve with this system?"
-3. "What are the key workflows?"
-4. "What business operations are supported?"
-```
-
-Limit: 10 results per query
-
-**Step 2: Identify critical business rules**
-
-Query Qdrant:
-```
-1. "What are critical business rules and validations?"
-2. "What compliance or regulatory requirements exist?"
-3. "What must never be violated in the business logic?"
-4. "What are the most important constraints?"
-5. "What security or privacy rules are enforced?"
+"validation and business rule enforcement"
+"authentication and authorization checks"
+"data processing workflows"
+"external service integrations"
 ```
 
-Limit: 10 results per query
+**Step 2: Infer business use cases from code**
+
+From the code analysis above, infer use cases by examining:
+- API endpoint names and their logic (POST /orders → "Create Order" use case)
+- Service method names (processPayment, sendEmail → business operations)
+- Entity relationships (Order has Items → e-commerce domain)
+- Validation rules in code (what's being checked = business rules)
+
+**Important:** Since Vector DB contains only code (not business docs), use cases must be inferred from implementation patterns, not queried directly.
+
+**Step 2: Identify critical business rules from code**
+
+Use Serena to find:
+- Validation classes/methods
+- Guard clauses and checks
+- Exception throwing conditions
+- Authorization checks
+
+Use Vector DB to find patterns (limit 5-10):
+```
+"validation logic and checks"
+"required fields and constraints"
+"authorization and permission checks"
+"error handling and exceptions"
+"transaction management"
+```
+
+Analyze found code for:
+- What validations exist (required fields, format checks)
+- What's forbidden (guard clauses, authorization denials)
+- What triggers errors (business rule violations)
+- What's enforced at code level (NOT NULL, foreign keys, etc.)
+
+**Important:** Business rules must be extracted from actual code implementation:
+- If statement checking conditions = business rule
+- Validation annotations = business constraints
+- Thrown exceptions = rule violations
+- Authorization checks = security rules
 
 **Generate:**
 
@@ -110,16 +147,20 @@ Use Serena MCP to:
 - Show actual file organization
 - Identify where different code types live
 
-**Step 2: Understand organization patterns**
+**Step 2: Understand organization patterns from code**
 
-Query Qdrant:
+Use Vector DB to find code organization patterns (limit 5):
 ```
-"How is the code organized and why?"
-"What are the layers and their purposes?"
-"What naming conventions are used?"
+"package structure and layering"
+"import statements and dependencies"
+"class organization patterns"
 ```
 
-Limit: 5 results
+Analyze patterns from actual code:
+- How are files grouped (by feature, by layer, by type)?
+- What naming patterns exist in file names?
+- How are dependencies organized?
+- What conventions appear consistently?
 
 **Generate:**
 
@@ -146,18 +187,30 @@ Document actual conventions found:
 
 ## SECTION 4: ARCHITECTURE (Use Vector DB + Serena for Examples)
 
-**Step 1: Understand architecture**
+**Step 1: Analyze architectural patterns from code**
 
-Query Qdrant:
+Use Serena to identify structure:
+- Main package/module organization
+- Base classes and interfaces
+- Dependency injection setup
+- Configuration files
+
+Use Vector DB to find implementation patterns (limit 10):
 ```
-1. "What architectural patterns are used?"
-2. "How is the system structured?"
-3. "What are the key design decisions?"
-4. "How do components interact?"
-5. "What integration patterns exist?"
+"service layer implementations"
+"repository or data access patterns"
+"controller or handler patterns"
+"middleware or interceptor usage"
+"dependency injection configuration"
+"error handling patterns"
+"logging implementations"
 ```
 
-Limit: 10 results per query
+From code analysis, identify:
+- Layering pattern (controller → service → repository)
+- Architectural style (MVC, hexagonal, etc.)
+- How components interact (through what interfaces/contracts)
+- What patterns are consistently used
 
 **Step 2: Find concrete examples**
 
@@ -266,26 +319,32 @@ Implement using discovered patterns
 
 ### 5.3 Common Tasks - How To
 
-**Step 1: Discover common tasks**
+**Step 1: Discover common patterns from code**
 
-Query Qdrant:
+Use Serena to scan:
+- Controller/handler methods to see common operations
+- Service methods to identify typical workflows
+- Test files to see what's frequently tested
+
+Use Vector DB to find implementation examples (limit 10):
 ```
-1. "What are common development tasks?"
-2. "How to add new features?"
-3. "How to integrate external services?"
-4. "What do developers frequently modify?"
+"adding new endpoints or handlers"
+"implementing new services"
+"integrating external APIs"
+"database operations and queries"
+"adding validation rules"
+"implementing authentication"
 ```
 
-Limit: 10 results
+**Step 2: Document with actual code examples**
 
-**Step 2: Document with Serena verification**
+From analysis above, identify 3-5 most common development patterns:
+- What files developers typically add/modify
+- What code patterns are repeated
+- What setup/configuration is needed
+- Actual examples from the codebase
 
-For each task, provide:
-- Step-by-step instructions (from vector DB)
-- Actual file paths (from Serena)
-- Code examples (from Serena)
-
-**Generate 3-5 common tasks based on vector DB findings**
+**Important:** Common tasks are inferred from code patterns, not from documentation. Look for repeated implementation patterns across the codebase.
 
 ---
 
