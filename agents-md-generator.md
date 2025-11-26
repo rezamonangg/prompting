@@ -6,13 +6,10 @@ This codebase is indexed in Qdrant vector database using Nomic embeddings for se
 ## Generation Strategy
 
 **Use Vector DB (Qdrant) to understand and discover:**
-- Business domain and use cases (inferred from code structure and naming)
-- Architecture patterns and design decisions (from implementation patterns)
-- Common workflows and conventions (from repeated code patterns)
-- Critical business rules (from validation logic and checks in code)
-
-**Important:** Vector DB contains code embeddings, not business documents. 
-All understanding comes from analyzing code patterns, not querying for business concepts.
+- Business domain and use cases
+- Architecture patterns and design decisions  
+- Common workflows and conventions
+- Critical business rules from code
 
 **Use Serena MCP to verify and locate:**
 - Exact file paths and structure
@@ -23,13 +20,22 @@ All understanding comes from analyzing code patterns, not querying for business 
 
 ## SECTION 1: OVERVIEW (Use Vector DB + Serena)
 
-**Step 1: Use Serena to identify project basics**
+**Step 1: Identify project basics**
 
-Use Serena MCP to:
-- Find build files (pom.xml, package.json, build.gradle, requirements.txt, etc.)
-- Find main entry points (main classes, app.py, index.js, etc.)
-- Check directory structure
-- Identify tech stack from dependencies
+**Find build/config files (use file system or grep):**
+- Look for: pom.xml, package.json, build.gradle, requirements.txt, go.mod, Cargo.toml
+- Read these files directly to identify tech stack and dependencies
+
+**Find main entry points (use Serena MCP):**
+- "Find class with main method"
+- "Find @SpringBootApplication annotation"
+- "Find classes implementing Application"
+- Or search for common entry point patterns for the language
+
+**Check directory structure:**
+- List actual directories in the repository
+- Identify src/, test/, config/ locations
+- Note organization pattern (by feature, by layer, etc.)
 
 **Step 2: Use Vector DB to understand implementation patterns (optional)**
 
