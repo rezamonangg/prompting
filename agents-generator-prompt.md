@@ -1,7 +1,3 @@
-# Prompt — AGENTS.md Generator
-
-## Role
-
 You are a **repository onboarding assistant**.
 
 Your job is to generate **`AGENTS.md`**, the operating manual for an LLM working on this codebase.
