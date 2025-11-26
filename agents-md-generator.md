@@ -1,685 +1,507 @@
-# Prompt: Generate AGENTS.md for This Repository
+# Prompt: Generate AGENTS.md Using Vector DB + Code Search
 
-Analyze this codebase and generate a complete AGENTS.md file following this structure:
+## Context
+This codebase is indexed in Qdrant vector database using Nomic embeddings for semantic search.
 
----
+## Generation Strategy
 
-## SECTION 1: OVERVIEW (Repository-Specific)
+**Use Vector DB (Qdrant) to understand and discover:**
+- Business domain and use cases
+- Architecture patterns and design decisions  
+- Common workflows and conventions
+- Critical business rules from code
 
-Analyze the repository and provide:
-
-**Project Name:** [Actual project name]
-
-**Purpose:** [One sentence: what business problem does this solve?]
-
-**Type:** [e.g., Microservice, REST API, Web App, CLI Tool, Library, Mobile App]
-
-**Tech Stack:** [List key technologies: language version, frameworks, databases, message queues, cloud services]
-
-**Domain:** [Business domain: e.g., E-commerce, Finance, Healthcare, Messaging, etc.]
+**Use Serena MCP to verify and locate:**
+- Exact file paths and structure
+- Specific class/method names for examples
+- Code organization details
 
 ---
 
-## SECTION 2: BUSINESS USE CASES & CRITICAL BUSINESS RULES (Repository-Specific)
+## SECTION 1: OVERVIEW (Use Vector DB + Serena)
+
+**Step 1: Use Vector DB to understand the project**
+
+Query Qdrant with these semantic searches (limit 10 results each):
+```
+1. "What is the main purpose of this system?"
+2. "What business problem does this solve?"
+3. "What type of application is this?"
+4. "What technologies and frameworks are used?"
+5. "What domain or industry is this for?"
+```
+
+**Step 2: Use Serena to verify structure**
+
+Use Serena MCP to:
+- Confirm actual tech stack (check build files, dependencies)
+- Verify project type (find main entry points)
+
+**Generate:**
+
+**Project Name:** [Actual project name from repository]
+
+**Purpose:** [One sentence from vector DB results]
+
+**Type:** [e.g., Microservice, REST API, Web App, CLI Tool - from vector DB + Serena verification]
+
+**Tech Stack:** [List key technologies found via vector DB, verified with Serena checking build files]
+
+**Domain:** [Business domain identified from vector DB]
+
+---
+
+## SECTION 2: BUSINESS USE CASES & CRITICAL BUSINESS RULES (Use Vector DB)
+
+**Step 1: Discover use cases**
+
+Query Qdrant:
+```
+1. "What are the main business use cases?"
+2. "What problems do users solve with this system?"
+3. "What are the key workflows?"
+4. "What business operations are supported?"
+```
+
+Limit: 10 results per query
+
+**Step 2: Identify critical business rules**
+
+Query Qdrant:
+```
+1. "What are critical business rules and validations?"
+2. "What compliance or regulatory requirements exist?"
+3. "What must never be violated in the business logic?"
+4. "What are the most important constraints?"
+5. "What security or privacy rules are enforced?"
+```
+
+Limit: 10 results per query
+
+**Generate:**
 
 ### Core Business Use Cases
 
-Identify and list the 5-7 main business use cases this system handles:
-- What problems does it solve?
-- Who are the users?
-- What are the key workflows?
-
-For each use case:
-- Name and brief description
+List 5-7 main use cases discovered from vector search:
+- Use case name and description
 - Why it's important
-- Key requirements or constraints
+- Key requirements
 
 ### CRITICAL BUSINESS RULES
 
-> These rules MUST NEVER be violated. Verify before making any changes.
+> These rules MUST NEVER be violated.
 
-Identify 5-10 critical business rules that must always be enforced:
+List 5-10 critical rules found in code:
 
-For each rule, provide:
+For each rule:
 1. **Rule name and description**
-2. **Why it exists** (business or legal reason)
-3. **Where it's enforced** (which layer/component)
-4. **Violation impact** (what breaks if violated)
-
-Examples of critical rules:
-- Data validation requirements (PII protection, compliance)
-- Business workflow constraints (approval processes, authorization)
-- Rate limiting or quota enforcement
-- Financial transaction rules
-- Legal/regulatory compliance (GDPR, PCI-DSS, etc.)
+2. **Why it exists** (found from comments/documentation)
+3. **Where enforced** (use Serena to verify exact locations)
+4. **Violation impact** (from vector search understanding)
 
 ---
 
-## SECTION 3: STRUCTURE (Repository-Specific)
+## SECTION 3: STRUCTURE (Use Serena + Vector DB)
+
+**Step 1: Get actual directory structure**
+
+Use Serena MCP to:
+- List main directories
+- Show actual file organization
+- Identify where different code types live
+
+**Step 2: Understand organization patterns**
+
+Query Qdrant:
+```
+"How is the code organized and why?"
+"What are the layers and their purposes?"
+"What naming conventions are used?"
+```
+
+Limit: 5 results
+
+**Generate:**
 
 ### Directory Organization
 
-Provide the actual directory tree showing:
-- Main source code directories
-- Where different types of code live (API, business logic, data access, etc.)
-- Configuration locations
-- Test locations
-- Any important subdirectories
+Provide actual directory tree from Serena:
+```
+[actual directory structure from codebase]
+```
 
-Format:
-```
-[actual directory structure]
-```
+Explain organization based on vector DB insights.
 
 ### Naming Conventions
 
-Document the actual naming conventions used in this codebase:
-- **Packages/Modules:** [convention]
-- **Files:** [convention]
-- **Classes/Types:** [convention]
-- **Interfaces:** [convention]
-- **Functions/Methods:** [convention]
-- **Variables:** [convention]
-- **Constants:** [convention]
-- **Test files:** [convention]
-
-Note any language-specific or framework-specific patterns.
+Document actual conventions found:
+- **Packages/Modules:** [from Serena scan]
+- **Files:** [from Serena scan]
+- **Classes/Types:** [from vector DB patterns]
+- **Functions/Methods:** [from vector DB patterns]
+- **Variables:** [from vector DB patterns]
+- **Constants:** [from vector DB patterns]
 
 ---
 
-## SECTION 4: ARCHITECTURE (Generic with Repository Examples)
+## SECTION 4: ARCHITECTURE (Use Vector DB + Serena for Examples)
 
-Use this generic template, but include repository-specific examples:
+**Step 1: Understand architecture**
+
+Query Qdrant:
+```
+1. "What architectural patterns are used?"
+2. "How is the system structured?"
+3. "What are the key design decisions?"
+4. "How do components interact?"
+5. "What integration patterns exist?"
+```
+
+Limit: 10 results per query
+
+**Step 2: Find concrete examples**
+
+Use Serena to locate specific files/classes mentioned in vector DB results.
+
+**Generate:**
 
 ### Architecture Style
 
-Identify the architectural pattern(s) used:
-- [e.g., Layered, Hexagonal, Event-Driven, Microservices, MVC, Clean Architecture]
-- Explain why this architecture was chosen for this project
-- Note if multiple patterns are combined
+[Architectural pattern from vector DB - e.g., Layered, Event-Driven, etc.]
+
+Explain why this architecture (from vector DB understanding).
 
 ### Key Architectural Patterns
 
-Identify 2-4 important patterns used in this codebase:
+Identify 2-4 patterns with examples:
 
 For each pattern:
-- **Pattern name**
-- **Where it's used** (with actual file/directory examples from this repo)
-- **Why it's used** (benefit it provides)
-- **Example location** (specific file path)
+- **Pattern name** [from vector DB]
+- **Where used** [verify with Serena MCP - actual file paths]
+- **Why used** [from vector DB understanding]
+- **Example location** [from Serena]
 
 ### Technology Choices
 
-For each major technology, explain:
+For major technologies:
 - **What it is**
-- **Why it was chosen** (what problem it solves)
-- **How it's used in this project**
-- Any important gotchas or constraints
+- **Why chosen** [from vector DB or git history]
+- **How used** [from vector DB patterns]
+- **Important constraints** [from vector DB]
 
 ---
 
-## SECTION 5: HOW TO GET THINGS DONE (Fully Generic - Copy As-Is)
+## SECTION 5: HOW TO GET THINGS DONE (Generic + Repository Examples)
 
 ### 5.1 Finding Codes
 
-#### Token Budget Guidelines
+**IMPORTANT: Tool Selection Strategy**
 
-| Task Complexity | Target Token Budget | When Exceeded |
-|----------------|---------------------|---------------|
-| Simple (bug fix, deletion) | 5-20k tokens | Re-evaluate search approach |
-| Medium (new feature, single component) | 20-50k tokens | Break into smaller tasks |
-| Complex (multi-component refactoring) | 50-100k tokens | Use planning tools first |
+Document this clearly for daily usage:
 
-#### Choose the Right Search Tool
+```markdown
+### Choose the Right Search Tool
 
 | What You're Looking For | Tool to Use | Why |
 |------------------------|-------------|-----|
-| Exact string, method, or class name | Serena MCP or grep | Precise, few results |
-| Code structure, inheritance, references | Serena MCP | AST-aware, understands relationships |
-| Semantic/conceptual ("how do we...") | Vector DB (limit 5-10) | Finds related code by meaning |
+| Exact string, method, class name | Serena MCP or grep | Precise, few results (3-10) |
+| Code structure, references | Serena MCP | AST-aware, understands code |
+| Semantic/conceptual questions | Vector DB (limit 5-10) | Finds related code by meaning |
 | Configuration values | grep/ripgrep | Fast text search |
 
-#### Search Workflow
+### When to Use Vector DB (Qdrant):
 
-**Phase 1: Targeted Search (Don't Load Files Yet)**
+✅ **GOOD for learning and exploration:**
+- "How do we handle authentication?"
+- "Show examples of error handling patterns"
+- "What are the common validation approaches?"
+- "How does the approval workflow work?"
+- "What integration patterns exist?"
 
+**IMPORTANT: Always limit to 5-10 results**
+
+❌ **BAD for exact searches (use Serena instead):**
+- "Find class EmailService" → Use Serena
+- "Find method sendEmail" → Use Serena
+- "Find string 'email_tracker'" → Use grep
+- "Find all calls to processPayment" → Use Serena
+
+### Why This Matters:
+
+**The 189k token problem:**
+- Vector DB for exact search = 50 results = 189k tokens ❌
+- Serena for exact search = 5 results = 10k tokens ✅
+
+**Token Budget Guidelines:**
+
+| Task Complexity | Target Tokens | Tool Choice |
+|----------------|---------------|-------------|
+| Simple (find + edit method) | 5-20k | Serena/grep only |
+| Medium (understand pattern + implement) | 20-50k | Vector DB (limit 5) + Serena |
+| Complex (learn system + refactor) | 50-100k | Vector DB (limit 10) + Serena |
 ```
-For exact matches:
-- Tool: Serena MCP or grep
-- Query: Exact string, class name, or method name
-- Scope: Specific directory when possible
-- Output: File paths + line numbers only
-
-For conceptual understanding:
-- Tool: Vector DB with limit=5-10
-- Query: Conceptual question
-- Output: Relevant code sections
-```
-
-**Phase 2: Review Results**
-- Check number of results (should be <20 for exact searches)
-- Verify relevance before loading full content
-- If too many results, narrow scope or refine query
-
-**Phase 3: Load Minimal Context**
-
-```
-✅ DO:
-- Load only specific methods or functions (10-30 lines)
-- Show snippets with immediate context
-- Ask for confirmation before loading more
-
-❌ DON'T:
-- Load entire files when you need one method
-- Load test files unless debugging tests
-- Use vector DB for exact string searches
-```
-
----
 
 ### 5.2 Adding / Deleting / Editing Codes
 
-#### General Principles
+[Copy generic content from previous universal prompt - Sections on EDITING, ADDING, DELETING]
 
-**Before Any Change:**
-1. Understand the current implementation
-2. Find similar existing code to follow patterns
-3. Identify all affected areas (callers, tests, configs)
-4. Plan the change before executing
-5. Make minimal, focused changes
+**Enhancement: Add Vector DB use case**
 
-**Token Efficiency:**
-- Show proposed changes before implementing
-- Make surgical edits, not full file rewrites
-- Load only what's necessary
+```markdown
+#### Using Vector DB to Understand Before Changing
 
----
+**When adding similar functionality:**
 
-#### EDITING Existing Code
+Step 1: Find examples with Vector DB
+Query: "How are [similar features] implemented?"
+Limit: 5 results
+Review: Understand the patterns
 
-**Step 1: Locate and Understand**
-1. Search for exact location using Serena MCP or grep
-2. Load ONLY the specific method/component (not entire file)
-3. Understand current behavior and why it exists
-4. Check for related tests
+Step 2: Find exact locations with Serena
+Use Serena to locate specific files mentioned in vector results
 
-**Step 2: Plan the Edit**
-
-Before modifying, answer:
-- What exactly needs to change?
-- Why is this change needed?
-- What's the impact on callers?
-- What tests need updating?
-- Does this affect any business rules?
-
-**Step 3: Show Proposed Changes**
-
-Don't immediately rewrite. Instead:
-1. Describe the change in plain English
-2. Show before/after comparison or diff
-3. Explain impact on behavior
-4. Highlight any risks
-5. Ask for confirmation
-
-**Step 4: Execute Changes**
-
+Step 3: Follow the pattern
+Implement using discovered patterns
 ```
-✅ Best practices:
-- Modify only the specific lines needed
-- Preserve existing code style and formatting
-- Keep consistent with surrounding code
-- Update related tests
-- Add/update comments if logic is complex
-
-❌ Avoid:
-- Rewriting entire files unnecessarily
-- Changing unrelated code
-- Mixing refactoring with bug fixes
-- Introducing new patterns inconsistently
-```
-
----
-
-#### ADDING New Code
-
-**Step 1: Understand Context**
-
-Before writing new code:
-1. Find similar existing implementations
-2. Review 1-2 examples of similar code
-3. Identify patterns and conventions to follow
-4. Note required dependencies and imports
-
-**Step 2: Plan the Addition**
-
-Answer these questions:
-1. Where does this code belong? (which directory/file)
-2. What naming convention applies?
-3. What interfaces/base classes to extend?
-4. What dependencies are needed?
-5. What configurations are required?
-6. What tests are needed?
-7. Does this follow existing patterns?
-
-**Step 3: Generate Code Incrementally**
-
-```
-For complex additions:
-1. Define interface/contract first → Get confirmation
-2. Implement core logic → Get confirmation
-3. Add error handling and logging → Get confirmation
-4. Write tests → Done
-
-For simple additions:
-- Generate complete code with explanatory comments
-- Follow existing patterns exactly
-- Include necessary imports and dependencies
-```
-
-**Step 4: Integration Check**
-
-After adding code, verify:
-- Follows project naming conventions
-- Matches existing code style
-- Has appropriate error handling
-- Includes necessary logging
-- Has corresponding tests
-- Updates configuration if needed
-
----
-
-#### DELETING Code
-
-**Step 1: Find All References (CRITICAL)**
-
-Never delete code without understanding its usage.
-
-Use Serena MCP to find:
-1. Where is it called? (direct usages)
-2. Where is it extended/implemented? (inheritance)
-3. Where is it imported? (dependencies)
-4. What tests reference it?
-5. What configs reference it?
-
-**Step 2: Impact Analysis**
-
-For each reference found, determine:
-1. Will it break if we delete? (compilation error)
-2. Will it cause runtime errors? (missing dependency)
-3. Are there alternative implementations?
-4. What tests will fail?
-5. What configurations become obsolete?
-6. Are there database migrations needed?
-
-**Step 3: Plan Deletion Strategy**
-
-```
-Simple deletion (no external dependencies):
-1. Remove the code
-2. Remove related tests
-3. Remove unused imports
-4. Clean up configuration
-
-Complex deletion (has dependencies):
-1. List all files that need changes
-2. Determine order of removal
-3. Identify refactoring needed
-4. Plan rollback strategy
-```
-
-**Step 4: Execute Deletion**
-
-Recommended order:
-1. Remove or update tests first
-2. Remove or refactor code that depends on target
-3. Remove the target code itself
-4. Remove unused imports and configurations
-5. Verify compilation and existing tests pass
-
-**Step 5: Verification Checklist**
-
-After deletion, confirm:
-- [ ] Code compiles without errors
-- [ ] No unused imports remain
-- [ ] All tests pass (or are properly updated/removed)
-- [ ] No orphaned configuration entries
-- [ ] No TODO/FIXME comments referencing deleted code
-- [ ] Documentation updated if needed
-
----
 
 ### 5.3 Common Tasks - How To
 
-Identify 3-5 common development tasks for this repository and provide step-by-step instructions:
+**Step 1: Discover common tasks**
 
-**Task 1: [Common task name - e.g., "Adding a new API endpoint"]**
-1. [Step-by-step instructions]
-2. [Where files go]
-3. [What to update]
-4. [Testing requirements]
+Query Qdrant:
+```
+1. "What are common development tasks?"
+2. "How to add new features?"
+3. "How to integrate external services?"
+4. "What do developers frequently modify?"
+```
 
-**Task 2: [Common task name - e.g., "Integrating an external service"]**
-1. [Step-by-step instructions]
-2. [Where files go]
-3. [What to update]
-4. [Testing requirements]
+Limit: 10 results
 
-**Task 3: [Common task name - e.g., "Modifying configuration"]**
-1. [Step-by-step instructions]
-2. [What to check]
-3. [How to test]
-4. [Deployment considerations]
+**Step 2: Document with Serena verification**
 
-[Add more tasks as relevant to this repository]
+For each task, provide:
+- Step-by-step instructions (from vector DB)
+- Actual file paths (from Serena)
+- Code examples (from Serena)
+
+**Generate 3-5 common tasks based on vector DB findings**
 
 ---
 
-## SECTION 6: MCP TOOLS (Fully Generic - Copy As-Is)
+## SECTION 6: MCP TOOLS
 
 ### 6.1 Serena MCP
 
-**Purpose:** Code-aware search and navigation using Abstract Syntax Tree (AST) analysis.
+[Copy generic Serena content from previous prompt]
 
-**When to Use:**
-- Finding exact class, method, or variable names
-- Locating all references to a code element
-- Understanding inheritance and implementation relationships
-- Navigating code structure
+**Add this critical section:**
 
-**When NOT to Use:**
-- Semantic searches ("find similar error handling")
-- Conceptual queries ("how do we handle authentication?")
-- Text-based searches in comments or documentation
+```markdown
+### Serena vs Vector DB
 
-**Usage Examples:**
+**Use Serena when you know what you're looking for:**
+- Exact class/method/variable names
+- All references to a specific element
+- Code structure and inheritance
+- Finding definitions
 
+**Use Vector DB when you're exploring:**
+- Understanding concepts
+- Finding similar patterns
+- Learning how something works
+- Discovering related code
 ```
-✅ GOOD USES:
-
-"Use Serena to find method [methodName]"
-"Use Serena to find all calls to [methodName]"
-"Use Serena to find classes implementing [InterfaceName]"
-"Use Serena to find all references to [ClassName]"
-
-❌ BAD USES:
-
-"Use Serena to find code similar to retry logic"
-→ Use Vector DB instead
-
-"Use Serena to understand how errors are handled"
-→ Use Vector DB or ask conceptual question
-```
-
-**Best Practices:**
-- Be specific with names (exact class/method names)
-- Scope to specific directories when possible
-- Use for structural code navigation
-- Prefer Serena over Vector DB for exact matches
-
----
 
 ### 6.2 Sequential Thinking MCP
 
-**Purpose:** Break down complex problems into logical steps before implementation.
-
-**When to Use:**
-- Complex multi-step tasks requiring careful planning
-- Debugging intricate issues with multiple potential causes
-- Architectural decisions that affect multiple components
-- High-risk changes to critical business logic
-- Tasks where you need to "think through" consequences
-
-**When NOT to Use:**
-- Simple, straightforward tasks
-- Well-understood repetitive tasks
-- When immediate action is clear
-
-**Usage Pattern:**
-
-```
-Before implementing [complex task], use Sequential Thinking to:
-
-1. Understand the current state
-   - What exists now?
-   - Why was it designed this way?
-   - What are the constraints?
-
-2. Identify the goal
-   - What needs to change?
-   - What's the desired end state?
-   - What are the success criteria?
-
-3. Break down the problem
-   - What are the logical steps?
-   - What are the dependencies?
-   - What could go wrong?
-
-4. Consider implications
-   - What are the side effects?
-   - What else might be affected?
-   - What are the risks?
-
-5. Plan the implementation
-   - What's the safest order?
-   - What can be tested incrementally?
-   - What's the rollback plan?
-
-6. Then proceed with implementation
-```
-
-**Best Practices:**
-- Use for high-impact or complex changes
-- Document the thinking process
-- Validate assumptions before proceeding
-- Use for any change affecting critical business rules
-
----
+[Copy generic Sequential Thinking content]
 
 ### 6.3 Git MCP
 
-**Purpose:** Interact with git history, branches, and commits to understand code evolution.
+[Copy generic Git content]
+
+### 6.4 Vector Database (Qdrant with Nomic Embeddings)
+
+**NEW SECTION - Add this:**
+
+```markdown
+### 6.4 Vector Database (Qdrant)
+
+**Purpose:** Semantic code search for understanding concepts, patterns, and relationships.
 
 **When to Use:**
-- Understanding why code was written a certain way
-- Finding when a bug was introduced
-- Reviewing recent changes in an area
-- Understanding code ownership and history
-- Investigating regressions
+- Learning how the system works
+- Finding examples of patterns
+- Understanding design decisions
+- Exploring related functionality
+- Discovering what's possible
 
-**Common Operations:**
+**When NOT to Use:**
+- Finding exact class/method names (use Serena)
+- Locating specific strings (use grep)
+- Getting all references (use Serena)
+- Finding file paths (use Serena)
 
-```
-View Recent Changes:
-"Use Git to show recent commits affecting [file/directory]"
+**Usage Examples:**
 
-Find When Bug Introduced:
-"Use Git to find commits that modified [method/class] in the last month"
+✅ **GOOD USES (Semantic Understanding):**
 
-Understand Design Decision:
-"Use Git to show the commit that introduced [feature/pattern]"
+"How does this system handle authentication?"
+→ Limit: 5-10 results
+→ Returns: Related authentication code patterns
 
-Review Author Context:
-"Use Git to show who last modified [critical section]"
+"Show me examples of error handling"
+→ Limit: 5 results
+→ Returns: Various error handling approaches
 
-Compare Branches:
-"Use Git to show differences between branches"
-```
+"What are common validation patterns?"
+→ Limit: 5 results
+→ Returns: Different validation implementations
+
+"How does the bulk email workflow work?"
+→ Limit: 10 results
+→ Returns: Related workflow components
+
+❌ **BAD USES (Exact Search - causes token bloat):**
+
+"Find EmailService class"
+→ Returns: 50+ results with "Email" or "Service" ❌
+→ Use Serena instead: exact match ✅
+
+"Find email_tracker database operations"
+→ Returns: 50+ results mentioning email or tracking ❌
+→ Use Serena/grep instead: 5 exact matches ✅
+
+**Critical Rules:**
+
+1. **Always limit results to 5-10 maximum**
+   - More results = more tokens
+   - Quality over quantity
+
+2. **Never use for exact searches**
+   - Exact names → Serena
+   - Exact strings → grep
+   - This prevents the 189k token problem
+
+3. **Use for learning, not locating**
+   - Learning: "How does X work?" → Vector DB ✅
+   - Locating: "Where is X defined?" → Serena ✅
+
+4. **Refine if results are poor**
+   - Too broad: "code" → Too specific: "error handling in payment service"
+   - Adjust query to be more specific
 
 **Best Practices:**
-- Check git history before modifying unfamiliar code
-- Read commit messages for context
-- Use git blame to find who to ask about code intent
-- Review related commits when fixing bugs
+
+- Start broad, then narrow with Serena
+- Use Vector DB for discovery phase
+- Switch to Serena for implementation phase
+- Combine both: Vector DB (understand) → Serena (locate)
+
+**Example Workflow:**
+
+```
+Task: Add rate limiting to email sending
+
+Step 1 - Understand (Vector DB):
+Query: "How is rate limiting implemented?"
+Limit: 5 results
+Result: Understand existing patterns
+
+Step 2 - Locate (Serena):
+"Use Serena to find RateLimiter class"
+Result: Exact file location
+
+Step 3 - Implement:
+Follow discovered pattern in exact location
+
+Token usage: 15k (Vector DB: 10k, Serena: 5k) ✅
+vs 189k if used Vector DB for exact search ❌
+```
+```
 
 ---
 
-## SECTION 7: DO's (Fully Generic - Copy As-Is)
+## SECTION 7: DO's
 
-### Code Quality
+[Copy generic DO's from previous prompt]
 
-**Follow Language/Framework Best Practices**
-- Use idiomatic patterns for the language
-- Follow framework conventions and lifecycle
-- Use appropriate data structures and algorithms
-- Write clean, readable code
+**Add this:**
 
-**Use Structured Logging**
-- Include relevant context (IDs, operation names)
-- Use appropriate log levels (DEBUG, INFO, WARN, ERROR)
-- Log significant business events
-- Make logs searchable and actionable
-
-**Handle Errors Gracefully**
-- Catch and handle exceptions appropriately
-- Log errors with full context
-- Return user-friendly error messages
-- Never expose internal errors to end users
-
-**Protect Sensitive Data**
-- Never log passwords, tokens, or API keys
-- Mask PII (emails, phone numbers, addresses)
-- Be cautious with business-sensitive data
-- Follow data protection regulations
-
-**Pass Context Through Operations**
-- Include request/trace IDs in all operations
-- Preserve context through async operations
-- Enable distributed tracing for debugging
-- Make operations traceable end-to-end
-
-**Write Tests**
-- Write unit tests for business logic
-- Write integration tests for critical paths
-- Mock external dependencies appropriately
-- Use test utilities suited to the framework
-
-**Follow Existing Patterns**
-- Match existing code style and formatting
-- Use established naming conventions
-- Follow existing error handling patterns
-- Replicate existing logging approaches
-
-**Keep Code Modular**
-- Separate concerns appropriately
-- Keep functions/methods focused and single-purpose
-- Use dependency injection
-- Make code testable and maintainable
-
-**Document Complex Logic**
-- Add comments for non-obvious code
-- Document business rules and edge cases
-- Keep documentation close to code
-- Update docs when code changes
+```markdown
+**Use Vector DB Wisely**
+- Limit results to 5-10 maximum
+- Use for understanding, not locating
+- Switch to Serena for exact searches
+- Be specific in semantic queries
+```
 
 ---
 
-## SECTION 8: DON'Ts (Fully Generic - Copy As-Is)
+## SECTION 8: DON'Ts
 
-### Critical Mistakes to Avoid
+[Copy generic DON'Ts from previous prompt]
 
-**Don't Mix Business Logic with Framework Code**
-- Keep business logic separate from HTTP/UI concerns
-- Don't put validation in presentation layer only
-- Business rules should be framework-agnostic
-- Keep core logic testable without framework
+**Add this:**
 
-**Don't Hardcode Configuration**
-- Use configuration files or environment variables
-- Don't embed credentials in code
-- Make configuration environment-specific
-- Use configuration management tools
-
-**Don't Log Sensitive Information**
-- Never log passwords or authentication tokens
-- Don't log full credit card numbers or PII
-- Don't log sensitive business data
-- Use masking utilities when necessary
-
-**Don't Make Changes Without Understanding Impact**
-- Always find all references before deleting code
-- Understand dependencies before modifying
-- Don't assume tests cover all cases
-- Search for configuration dependencies
-
-**Don't Mix Concerns in Changes**
-- Don't refactor while fixing bugs
-- Don't add features while deleting code
-- Keep changes focused on single purpose
-- Make one logical change per commit
-
-**Don't Make Assumptions**
-- Don't assume build tools or processes
-- Don't assume deployment methods
-- Ask about environment if unsure
-- Don't add dependencies without confirmation
-
-**Don't Skip Impact Analysis**
-- Always check what calls modified code
-- Verify tests still pass
-- Check for configuration dependencies
-- Consider downstream effects
-
-**Don't Ignore Existing Conventions**
-- Match existing file naming
-- Follow established directory structure
-- Use consistent formatting
-- Replicate existing patterns
-
-**Don't Block Critical Operations**
-- Be aware of performance implications
-- Don't introduce blocking operations in async code
-- Consider scalability impact
-- Test with realistic load
-
-**Don't Skip Security Considerations**
-- Validate all inputs
-- Follow principle of least privilege
-- Don't trust user input
-- Consider security in design
+```markdown
+**Don't Misuse Vector Database**
+- Don't use for exact name searches (causes 50+ results)
+- Don't exceed 10 result limit (token bloat)
+- Don't use when Serena is more appropriate
+- Don't use for finding specific files/lines
+```
 
 ---
 
-## TOKEN EFFICIENCY QUICK REFERENCE (Fully Generic - Copy As-Is)
+## TOKEN EFFICIENCY QUICK REFERENCE
 
-**Tool Selection:**
-- Exact names → Serena MCP or grep
-- Code structure → Serena MCP
-- Semantic search → Vector DB (limit 5-10)
+**Tool Selection Decision Tree:**
 
-**Loading Strategy:**
-- Load only relevant files/methods
-- Show snippets before full context
-- Ask before loading more
-- Scope searches to specific directories
+```
+Do you know the exact name/string?
+├─ YES → Use Serena MCP or grep (5-20k tokens)
+└─ NO → Need to understand/explore?
+    ├─ YES → Use Vector DB, limit 5-10 (10-20k tokens)
+    └─ NO → Ask clarifying question first
 
-**Task Budgets:**
-- Simple: 5-20k tokens
-- Medium: 20-50k tokens
-- Complex: 50-100k tokens
+Are you getting too many results?
+├─ Vector DB returning 50+ → Switch to Serena ✅
+└─ Serena returning 50+ → Refine scope/query
+```
 
 **Common Mistakes:**
-- Using Vector DB for exact searches (causes 50+ results)
-- Loading entire files when needing one method
-- Not scoping searches to relevant directories
-- Making changes without finding all references first
+
+| Mistake | Token Cost | Fix |
+|---------|-----------|-----|
+| Vector DB for "find EmailService" | 189k ❌ | Serena: 5k ✅ |
+| Loading entire files | 100k ❌ | Load methods only: 10k ✅ |
+| No result limits on Vector DB | 200k ❌ | Limit to 5-10: 15k ✅ |
+| Searching whole codebase | 150k ❌ | Scope to directory: 20k ✅ |
 
 ---
 
 ## GENERATION INSTRUCTIONS
 
-**For Sections 1-3 (Repository-Specific):**
-- Analyze the actual codebase thoroughly
-- Provide real file paths, directory structures, and examples
-- Identify actual business rules from the code
-- Be specific and accurate
+**Execution Strategy:**
 
-**For Sections 4-8 (Generic with Examples):**
-- Section 4: Use generic template but include repository-specific examples
-- Sections 5-8: Copy the generic content exactly as provided
-- Ensure consistency in formatting and structure
+1. **For Sections 1-3:** Use Vector DB for semantic understanding, Serena for verification
+2. **For Section 4:** Use Vector DB for patterns, Serena for examples
+3. **For Section 5.3:** Use Vector DB to discover tasks, Serena to verify steps
+4. **For Sections 5.1-5.2, 6-8:** Use the generic templates provided
+
+**Quality Checks:**
+
+- Are file paths actual and verified with Serena?
+- Are business rules discovered from code, not assumed?
+- Is the Vector DB vs Serena distinction clear?
+- Are token efficiency guidelines prominent?
 
 **Output Format:**
-- Generate the complete AGENTS.md file
-- Use clear markdown formatting
-- Include all sections in order
-- Make it ready to commit to the repository
+
+- Complete AGENTS.md ready to commit
+- Clear markdown formatting
+- All sections included
+- Specific to this repository (sections 1-4)
+- Generic best practices (sections 5-8)
