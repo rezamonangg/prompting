@@ -6,10 +6,13 @@ This codebase is indexed in Qdrant vector database using Nomic embeddings for se
 ## Generation Strategy
 
 **Use Vector DB (Qdrant) to understand and discover:**
-- Business domain and use cases
-- Architecture patterns and design decisions  
-- Common workflows and conventions
-- Critical business rules from code
+- Business domain and use cases (inferred from code structure and naming)
+- Architecture patterns and design decisions (from implementation patterns)
+- Common workflows and conventions (from repeated code patterns)
+- Critical business rules (from validation logic and checks in code)
+
+**Important:** Vector DB contains code embeddings, not business documents. 
+All understanding comes from analyzing code patterns, not querying for business concepts.
 
 **Use Serena MCP to verify and locate:**
 - Exact file paths and structure
